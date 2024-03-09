@@ -6,14 +6,14 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
     <link href="./dist/output.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdn.tailwindcss.com/"> -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
     <title>Photomaton</title>
 </head>
 
 <body>
     <form>
-        <div class="space-y-12">
+        <div class="space-y-12 flex flex-col justify-center p-8">
             <div class="border-b border-gray-900/10 pb-12">
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="col-span-full">
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="col-span-full">
-                        <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Rue</label>
+                        <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Saisisez votre adresse</label>
                         <div class="mt-2">
                             <input type="text" name="street-address" id="street-address"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
@@ -117,7 +117,7 @@
             }
         }
         function autocompleteAdresse() {
-            var inputValue = document.getElementById("street-adresse").value;
+            var inputValue = document.getElementById("street-address").value;
             if (inputValue) {
                 fetch(setQuery(inputValue))
                     .then(function (response) {
@@ -130,9 +130,9 @@
             }
         };
         function selectAdresse(element) {
-            document.getElementById("street-adresse").value = element.properties.name + "\r\n" + element.properties.postcode + " " + element.properties.city;
+            document.getElementById("street-address").value = element.properties.name + "\r\n" + element.properties.postcode + " " + element.properties.city;
             select.style.display = "none";
-            document.getElementById("street-adresse").value = element.properties.name;
+            document.getElementById("street-address").value = element.properties.name;
             document.getElementById("postal-code").value = element.properties.postcode;
             document.getElementById("city").value = element.properties.city;
         }
